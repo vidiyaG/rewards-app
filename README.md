@@ -35,24 +35,27 @@ This project is a React-based Customer Rewards Management System that simulates 
 
 1️⃣ Clone the repository
 
-`git clone https://github.com/vidiyaG/rewards-app.git`
-
-`cd rewards-app`
+````sh
+git clone https://github.com/vidiyaG/rewards-app.git
+cd rewards-app
 
 2️⃣ Install dependencies
 
+```sh
 `npm install`
 
 3️⃣ Start the React app:
 
+```sh
 `npm start`
 
 Runs the app on http://localhost:3000/
 
 ### Screens
 
-- Customers page
-  ![Customers](/public/images/customers.png)
+Customers page
+![Customers](/public/images/customers.png)
 
-- Transactions Page
-  ![Transations](/public/images/transations.png)
+Transactions Page
+![Transations](/public/images/transations.png)
+````
