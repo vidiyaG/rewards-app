@@ -1,9 +1,8 @@
-import "./App.css";
-
-import React, { Suspense, lazy } from "react";
+import React, { lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Card, Container, Spacer, Title } from "./styles/GlobalStyles";
 import ErrorBoundary from "./components/ErrorBoundary";
+import "./App.css";
 
 const Customers = lazy(() => import("./components/Customers"));
 const CustomerTransactions = lazy(() =>
@@ -18,15 +17,13 @@ const App = () => {
           <Title>Rewards App</Title>
         </Container>
         <Router>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Customers />} />
-              <Route
-                path="/customers/:customerId/transactions"
-                element={<CustomerTransactions />}
-              />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<Customers />} />
+            <Route
+              path="/customers/:customerId/transactions"
+              element={<CustomerTransactions />}
+            />
+          </Routes>
         </Router>
       </Card>
     </ErrorBoundary>

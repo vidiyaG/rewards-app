@@ -52,6 +52,12 @@ export const PaginationContainer = styled.div`
   align-items: center;
 `;
 
+export const PaginationCard = styled.div`
+  display: "flex";
+  align-items: "center";
+  gap: 10px;
+`;
+
 export const PaginationButton = styled.button`
   background-color: #dcdcdc73;
   color: #000;
@@ -62,6 +68,13 @@ export const PaginationButton = styled.button`
   border-radius: 5px;
   &:hover {
     background-color: gainsboro;
+  }
+  &:disabled {
+    background-color: #d6d6d6;
+    color: #888;
+    border-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
   }
 `;
 

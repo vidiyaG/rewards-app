@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import PropTypes from "prop-types";
 
 const useCustomers = (page = 1, pageSize = 10) => {
   const [allCustomers, setAllCustomers] = useState([]); // Store full data
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  const fetchCustomers = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -26,6 +27,9 @@ const useCustomers = (page = 1, pageSize = 10) => {
           setLoading(false);
         });
     }, 2000); // Simulate API delay
+  });
+  useEffect(() => {
+    fetchCustomers();
   }, [page]);
 
   const paginatedCustomers = useMemo(() => {
@@ -38,7 +42,22 @@ const useCustomers = (page = 1, pageSize = 10) => {
     [allCustomers.length, pageSize]
   );
 
-  return { customers: paginatedCustomers, loading, error, totalPages };
+  return {
+    customers: paginatedCustomers,
+    loading,
+    error,
+    totalPages,
+    refetch: fetchCustomers,
+  };
 };
 
+useCustomers.propTypes = {
+  customerId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired, // Must be a string or number
+  refetch: PropTypes.bool, // Boolean to trigger refetch
+};
+
+useCustomers.defaultProps = {
+  refetch: false,
+};
 export default useCustomers;

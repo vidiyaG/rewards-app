@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   CustomerListContainer,
   Table,
@@ -6,16 +6,19 @@ import {
   Button,
   TableRow,
   PaginationButton,
+  PaginationCard,
 } from "../styles/CustomerStyles";
-import { Center, Loader, Spacer } from "../styles/GlobalStyles";
+import { Card, Center, Loader, Spacer } from "../styles/GlobalStyles";
 import useCustomers from "../hooks/useCustomers";
+import "../../src/App.css";
+
 const pageSizeOptions = [10, 20, 50];
 
 const CustomerList = ({ onCustomerSelect }) => {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
-  const { customers, loading, error, totalPages } = useCustomers(
+  const { customers, loading, error, totalPages, refetch } = useCustomers(
     page,
     pageSize
   );
@@ -25,8 +28,6 @@ const CustomerList = ({ onCustomerSelect }) => {
     setPageSize(Number(e.target.value));
   };
 
-  if (error) return <p>{error}</p>;
-
   return (
     <>
       {
@@ -34,9 +35,7 @@ const CustomerList = ({ onCustomerSelect }) => {
           <Spacer>
             <h3>Customers</h3>
             <PaginationContainer>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "10px" }}
-              >
+              <PaginationCard>
                 <span>Page Size:</span>
                 <select value={pageSize} onChange={(e) => onPageSizeChange(e)}>
                   {pageSizeOptions.map((size) => (
@@ -45,7 +44,7 @@ const CustomerList = ({ onCustomerSelect }) => {
                     </option>
                   ))}
                 </select>
-              </div>
+              </PaginationCard>
               <PaginationButton
                 onClick={() => setPage(page - 1)}
                 disabled={page === 1}
@@ -94,6 +93,17 @@ const CustomerList = ({ onCustomerSelect }) => {
           {loading && (
             <Center>
               <Loader />{" "}
+            </Center>
+          )}
+
+          {error && (
+            <Center>
+              <Card>
+                <Card>
+                  <span className="error">Error: {error}</span>
+                </Card>
+                <PaginationButton onClick={refetch}>Retry</PaginationButton>
+              </Card>
             </Center>
           )}
         </CustomerListContainer>

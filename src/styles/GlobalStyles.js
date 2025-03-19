@@ -93,15 +93,12 @@ export const SummaryContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  margin-bottom: 20px;
+
   background: #f0f4f8;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-
-  h2 {
-    color: #333;
-  }
-
+  margin: 12px 0px;
+  margin-bottom: 20px;
   .reward-details {
     display: flex;
     gap: 20px;

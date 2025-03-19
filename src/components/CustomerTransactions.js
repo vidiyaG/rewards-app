@@ -25,7 +25,7 @@ const CustomerTransactions = () => {
       <GlobalStyles />
       <Container>
         <Spacer>
-          <h3>Transactions</h3>
+          <h3>Perchases</h3>
           <PaginationButton onClick={onNavigateHome}>
             View Customers
           </PaginationButton>

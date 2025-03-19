@@ -24,13 +24,13 @@ const RewardsSummary = ({ transactions, loading }) => {
   );
 
   return (
-    <SummaryContainer style={{ margin: "12px 0" }}>
+    <SummaryContainer>
       <h3>Rewards Summary</h3>
       <table>
         <thead>
           <tr>
             <th>Month</th>
-            <th>Rewards Points</th>
+            <th>Reward Points</th>
           </tr>
         </thead>
         {rewardsPerMonth && !loading && (
@@ -42,9 +42,13 @@ const RewardsSummary = ({ transactions, loading }) => {
               </tr>
             ))}
             {/* Total Rewards Row */}
-            <tr style={{ fontWeight: "bold" }}>
-              <td>Total</td>
-              <td>{totalRewards}</td>
+            <tr>
+              <td>
+                <b>Total</b>
+              </td>
+              <td>
+                <b>{totalRewards}</b>
+              </td>
             </tr>
           </tbody>
         )}
