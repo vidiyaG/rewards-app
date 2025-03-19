@@ -38,16 +38,19 @@ This project is a React-based Customer Rewards Management System that simulates 
 ````sh
 git clone https://github.com/vidiyaG/rewards-app.git
 cd rewards-app
+```sh
 
 2️⃣ Install dependencies
 
 ```sh
 `npm install`
+```sh
 
 3️⃣ Start the React app:
 
 ```sh
 `npm start`
+```sh
 
 Runs the app on http://localhost:3000/
 
