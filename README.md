@@ -13,7 +13,7 @@ This project is a React-based Customer Rewards Management System that simulates 
 - Default last 3 months of transactions, user can select a different month/year.
 - Pagination for handling large data.
 - React Best Practices: Component-based structure, prop validation, styled components, and code splitting.
-- Unit Testing with Vitest: Covers transaction amounts, reward calculation, pagination, and filtering.
+- Unit Testing with Vitest: reward calculation, pagination, and filtering.
 - GitHub & Documentation: Repository includes setup guide, API details, and test results.
 
 ### Technologies Used
@@ -24,6 +24,35 @@ This project is a React-based Customer Rewards Management System that simulates 
 - ESLint & Prettier – Code Quality
 - GitHub – Version Control
 - JSON data
+
+### UI screens
+
+- View All Customers: The home page displays all customers and their transactions.
+- Filter by Customer: Select a customer to view their rewards summary.
+- Monthly Transaction Details: By default last 3 months of transactions in UI filter
+- View transactions for a specific month and year (Disabled future dates dynamically).
+- Change Time Filters: Adjust filters to see transactions from different months & years.
+- Pagination: Navigate through large transaction records.
+- Navigate between Customers and Transactions screens
+- Reward summery for the selected month and/or year.
+- Total reward points for the filtered transactions.
+- Simulated Network API call for requesting customers and transactions data
+
+### API Details (Simulated JSON Data)
+
+```sh
+{
+  "customerId": "CUST123",
+  "transactionId": "TXN456",
+  "amount": 120.50,
+  "date": "2024-07-11T20:43:19Z"
+}
+
+```
+
+### Reward Points Calculation
+
+![reward](/public/images/reward.png)
 
 # Setup Instructions
 
@@ -53,6 +82,10 @@ cd rewards-app
 
 Runs the app on http://localhost:3000/
 
+Run tests using:
+
+`npm test`
+
 ```
 
 ### Screens
@@ -62,3 +95,24 @@ Customers page
 
 Transactions Page
 ![Transations](/public/images/transations.png)
+
+### Testing
+
+Reward Points Calculation
+![reward-points](/public/images/reward-points-test.png)
+
+### Loading Hangling
+
+![loading](/public/images/loading.png)
+
+### Error Handling
+
+![error](/public/images/error.png)
+
+### Default last 3 months of transactions and Rewards summery
+
+![transactions](/public/images/transactions.png)
+
+### Disabled future dates
+
+![future-dates-filter](/public/images/future-dates-filter.png)

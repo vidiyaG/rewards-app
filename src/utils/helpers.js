@@ -1,4 +1,8 @@
 export const calculateRewards = (amount) => {
+  if (isNaN(amount) || amount === null || amount === undefined) {
+    return 0;
+  }
+
   let rewardPoints = 0;
   amount = parseInt(amount);
 
