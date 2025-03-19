@@ -31,15 +31,16 @@ This project is a React-based Customer Rewards Management System that simulates 
 `cd rewards-app`
 
 2️⃣ Install dependencies
-`npm install`
+
+- `npm install`
 
 3️⃣ Start the React app:
-`npm start`
+- `npm start`
 
 - Runs the app on http://localhost:3000/
 
 4️⃣ Test the application
-`npm test`
+- `npm test`
 
 ![Testing reference output](test.png)
 
